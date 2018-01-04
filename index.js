@@ -1,4 +1,6 @@
 import { AppRegistry } from 'react-native';
-import Home from './src/components/home/Home.js';
+import HomeView from './src/components/scenes/HomeView.js'
+import DetailView from './src/components/scenes/DetailView.js'
 
-// AppRegistry.registerComponent('demo_react_native', () => Home);
+
+AppRegistry.registerComponent('demo_react_native', () => DetailView);

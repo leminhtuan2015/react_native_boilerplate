@@ -4,7 +4,10 @@
  * @flow
  */
 import { AppRegistry } from 'react-native';
+import { Button } from 'react-native';
 import React, { Component } from 'react';
+import Button1 from '../views/Button1'
+
 import {
   Platform,
   StyleSheet,
@@ -19,8 +22,13 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class Home extends Component<{}> {
-  render() {
+class HomeView extends Component<{}> {
+  
+  buttonPress(){
+    console.log("press")
+  }
+ 
+ render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -32,6 +40,14 @@ export default class Home extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        <Button
+          onPress={this.buttonPress}
+          title="Learn More"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
+        <Text name="HWT">Hello {this.props.name}!</Text>
+        <Button1 />
       </View>
     );
   }
@@ -56,4 +72,5 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('demo_react_native', () => Home);
+
+export default  HomeView
