@@ -23,9 +23,14 @@ const instructions = Platform.select({
 });
 
 class HomeView extends Component<{}> {
-  
-  buttonPress(){
+ 
+  buttonPress = () => {
     console.log("press")
+    
+    this.props.navigator.push({
+      screen: 'DetailView',
+      title: undefined,
+    });
   }
  
  render() {

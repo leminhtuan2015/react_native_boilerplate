@@ -1,14 +1,9 @@
-import React from 'react'
-import { Router, Scene } from 'react-native-router-flux'
-import Home1 from '../components/home/Home.js'
-import About from '../components/detail/DetailView.js'
+import { Navigation } from 'react-native-navigation';
 
-const Routes = () => (
-    <Router>
-        <Scene key = "root">
-          <Scene key = "home" component = {Home1} title = "Home" initial = {true} />
-          <Scene key = "about" component = {About} title = "About" />
-        </Scene>
-    </Router>
-    )
-export default Routes
+import HomeView from '../components/screens/HomeView';
+import DetailView from '../components/screens/DetailView';
+
+export default () => {
+  Navigation.registerComponent('HomeView', () => HomeView);
+  Navigation.registerComponent('DetailView', () => DetailView);
+};
