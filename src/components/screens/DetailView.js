@@ -15,11 +15,19 @@ import {
 } from 'react-native';
 
 class DetailView extends Component<{}> {
- buttonPress(){console.log("press")}
+
+  buttonPress = () => {
+    console.log("press")
+    this.props.navigator.popToRoot({
+    animated: true,
+    animationType: 'fade',
+  });
+}
  
- view = (
+view = (
   <View style={styles.container}>
    <Button
+    onPress={this.buttonPress}
      //containerViewStyle={styles.buttonContainer}
      color="#E91E63"
      title='BUTTON WITH ICON' />
@@ -37,7 +45,7 @@ class DetailView extends Component<{}> {
   }
 }
 
- const styles = StyleSheet.create({
+ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
