@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 
 import Button1 from '../views/Button1'
+import Button2 from '../views/Button2'
 import State from './StateTest'
 import CounterContainer from '../../containers/CounterContainer.js';
 import Store from '../../store/Store.js';
@@ -62,7 +63,8 @@ class HomeView extends Component<{}> {
           title="Learn More"
           color="#841584"
         />
-        <Button1 />
+        <Button1 title="Button 1 props" />
+        <Button2 title="Button 2 props" />
         
         <Button
           onPress={this.buttonPress1}

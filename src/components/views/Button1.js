@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Alert } from 'react-native'
 
-const Button1 = () => {
+const Button1 = (props) => {
     const handlePress = () => {
         Alert.alert('You tapped the button!');
     }
@@ -9,7 +9,7 @@ const Button1 = () => {
     return (
         <Button
             onPress = {handlePress}
-            title = "Red button!"
+            title = {props.title}
             color = "red"
         />    
     )
