@@ -6,6 +6,9 @@
 import { AppRegistry } from 'react-native';
 import { Button } from 'react-native';
 import React, { Component } from 'react';
+
+import State from './StateTest'
+
 import {
   Platform,
   StyleSheet,
@@ -28,14 +31,13 @@ view = (
   <View style={styles.container}>
    <Button
     onPress={this.buttonPress}
-     //containerViewStyle={styles.buttonContainer}
      color="#E91E63"
      title='BUTTON WITH ICON' />
   
     <TouchableHighlight
        loading={true}
        style={styles.button} >
-      <Text> Touch Here </Text>
+      <Text> Touch Here {State.value}</Text>
     </TouchableHighlight>
   </View>
  )

@@ -6,7 +6,13 @@
 import { AppRegistry } from 'react-native';
 import { Button } from 'react-native';
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+
 import Button1 from '../views/Button1'
+import State from './StateTest'
+import CounterContainer from '../../containers/CounterContainer.js';
+import Store from '../../store/Store.js';
 
 import {
   Platform,
@@ -23,37 +29,50 @@ const instructions = Platform.select({
 });
 
 class HomeView extends Component<{}> {
+  
+  state = State
+
+  buttonPress1 = () => {
+    console.log("hello")
+    
+    this.setState({value: (this.state.value + 1)}) 
+  }
  
   buttonPress = () => {
     console.log("press")
     
     this.props.navigator.push({
       screen: 'DetailView',
-      title: undefined,
+      title: "Detail",
     });
   }
  
  render() {
     return (
+      <Provider store={Store}>
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+
+        <Text>{this.state.value}</Text>
+
         <Button
           onPress={this.buttonPress}
           title="Learn More"
           color="#841584"
-          accessibilityLabel="Learn more about this purple button"
         />
-        <Text name="HWT">Hello {this.props.name}!</Text>
         <Button1 />
+        
+        <Button
+          onPress={this.buttonPress1}
+          title="Action"
+          color="#841584"
+        />
+        
+        <CounterContainer/>
       </View>
+      </Provider>
     );
   }
 }
