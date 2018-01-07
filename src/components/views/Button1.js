@@ -3,7 +3,7 @@ import { Button, Alert } from 'react-native'
 
 const Button1 = (props) => {
     const handlePress = () => {
-        Alert.alert('You tapped the button!');
+        Alert.alert('You tapped the :' + props.title);
     }
     
     return (

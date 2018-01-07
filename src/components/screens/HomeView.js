@@ -11,8 +11,7 @@ import { connect } from 'react-redux';
 
 import Button1 from '../views/Button1'
 import Button2 from '../views/Button2'
-import State from './StateTest'
-import CounterContainer from '../../containers/CounterContainer.js';
+import CounterViewContainer from '../../containers/CounterViewContainer.js';
 import Store from '../../store/Store.js';
 
 import {
@@ -31,7 +30,7 @@ const instructions = Platform.select({
 
 class HomeView extends Component<{}> {
   
-  state = State
+  state = {value: 10}
 
   buttonPress1 = () => {
     console.log("hello")
@@ -56,23 +55,24 @@ class HomeView extends Component<{}> {
           {instructions}
         </Text>
 
-        <Text>{this.state.value}</Text>
+        <Text>Current State: {this.state.value}</Text>
 
         <Button
           onPress={this.buttonPress}
-          title="Learn More"
+          title="Push Component"
           color="#841584"
         />
         <Button1 title="Button 1 props" />
         <Button2 title="Button 2 props" />
+        <Button2 />
         
         <Button
           onPress={this.buttonPress1}
-          title="Action"
+          title="Change State"
           color="#841584"
         />
         
-        <CounterContainer/>
+        <CounterViewContainer/>
       </View>
       </Provider>
     );

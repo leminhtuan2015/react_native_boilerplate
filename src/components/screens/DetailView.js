@@ -7,7 +7,9 @@ import { AppRegistry } from 'react-native';
 import { Button } from 'react-native';
 import React, { Component } from 'react';
 
-import State from './StateTest'
+import { Provider } from 'react-redux';
+import Store from '../../store/Store'
+import CounterView1Container from '../../containers/CounterView1Container'
 
 import {
   Platform,
@@ -28,6 +30,7 @@ class DetailView extends Component<{}> {
 }
  
 view = (
+  <Provider store={Store}>
   <View style={styles.container}>
    <Button
     onPress={this.buttonPress}
@@ -37,9 +40,12 @@ view = (
     <TouchableHighlight
        loading={true}
        style={styles.button} >
-      <Text> Touch Here {State.value}</Text>
+      <Text> Touch Here {this.props.count}</Text>
     </TouchableHighlight>
+   
+    <CounterView1Container />
   </View>
+  </Provider>
  )
 
  render() {

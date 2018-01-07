@@ -6,20 +6,20 @@ import {
   View,
 } from 'react-native';
 
-export default class Counter extends Component {
+export default class CounterView1 extends Component {
   render() {
     return (
-      <View>
+      <View style={{backgroundColor: "red"}}>
         <Button
-          title="Up"
+          title="Counter1 Up"
           onPress={this.props.increment}/>
         <Text
           style={styles.counter}
           onPress={this.props.reset}>
-          {this.props.count}
+          {this.props.data.number}
         </Text>
         <Button
-          title="Down"
+          title="Counter1 Down"
           onPress={this.props.decrement}/>
       </View>
     );
