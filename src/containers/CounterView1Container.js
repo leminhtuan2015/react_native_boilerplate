@@ -8,9 +8,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-//  increment: () => { dispatch({ type: 'INCREMENT' }) },
-//  decrement: () => { dispatch({ type: 'DECREMENT' }) },
-//  reset: () => { dispatch({ type: 'RESET' }) },
+  increment: () => { dispatch({ type: 'INCREMENT1' }) },
+  decrement: () => { dispatch({ type: 'DECREMENT1' }) },
+  reset: () => { dispatch({ type: 'RESET1' }) },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CounterView1)

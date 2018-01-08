@@ -1,18 +1,16 @@
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
+import CountReducer from '../reducers/CountReducer'
+import CountReducer1 from '../reducers/CountReducer1'
 
-export const Data = (stateObject = {number: 0}, action) => {
-  switch (action.type) {
-  case 'INCREMENT':
-    return {number: stateObject.number + 1};
-  case 'DECREMENT':
-    return {number: stateObject.number - 1};
-  case 'RESET':
-    return {number: 0};
-  default:
-    return stateObject
-  }
-}
+const reducers = combineReducers({
+ CountReducer,
+ CountReducer1,
+});
 
-let Store = createStore(Data);
+
+// Pass current state and action for reducers
+let Store = createStore(reducers)
+
+console.log("Store state: " + JSON.stringify(Store.getState()))
 
 export default Store;

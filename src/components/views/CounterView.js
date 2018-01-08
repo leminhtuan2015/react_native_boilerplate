@@ -16,7 +16,7 @@ export default class CounterView extends Component {
         <Text
           style={styles.counter}
           onPress={this.props.reset}>
-          {this.props.data.number}
+          {this.props.data.CountReducer.number}
         </Text>
         <Button
           title="Counter Down"

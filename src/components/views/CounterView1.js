@@ -16,11 +16,18 @@ export default class CounterView1 extends Component {
         <Text
           style={styles.counter}
           onPress={this.props.reset}>
-          {this.props.data.number}
+          {this.props.data.CountReducer1.number1}
         </Text>
+
         <Button
           title="Counter1 Down"
           onPress={this.props.decrement}/>
+        
+        <Text
+          style={styles.counter}>
+          {this.props.data.CountReducer.number}
+        </Text>
+
       </View>
     );
   }
