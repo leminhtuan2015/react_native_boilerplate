@@ -32,6 +32,15 @@ class HomeView extends Component<{}> {
   
   state = {value: 10}
 
+  buttonPress2 = () => {
+    console.log("press")
+    
+    this.props.navigator.push({
+      screen: 'UserDetailViewContainer',
+      title: "UserDetail",
+    });
+  }
+
   buttonPress1 = () => {
     console.log("hello")
     
@@ -54,18 +63,25 @@ class HomeView extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        
+        <Button1 title="Button 1 props" />
+        <Button2 title="Button 2 props" />
+        <Button2 />
 
         <Text>Current State: {this.state.value}</Text>
 
         <Button
           onPress={this.buttonPress}
-          title="Push Component"
+          title="Push Detail Component"
           color="#841584"
         />
-        <Button1 title="Button 1 props" />
-        <Button2 title="Button 2 props" />
-        <Button2 />
-        
+
+        <Button
+          onPress={this.buttonPress2}
+          title="Push User Detail Component"
+          color="#841584"
+        />
+
         <Button
           onPress={this.buttonPress1}
           title="Change State"
