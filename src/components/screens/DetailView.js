@@ -7,8 +7,6 @@ import { AppRegistry } from 'react-native';
 import { Button } from 'react-native';
 import React, { Component } from 'react';
 
-import Store from "../../store/Store"
-
 import {
   Platform,
   StyleSheet,
@@ -18,11 +16,6 @@ import {
 } from 'react-native';
 
 class DetailView extends Component<{}> {
-
- constructor(){
-   super()
-   console.log("Detail View" + JSON.stringify(Store.getState()))
- }
 
   buttonPress = () => {
     console.log("press")
@@ -38,7 +31,7 @@ view = (
     onPress={this.buttonPress}
      color="#E91E63"
      title='Back' />
-   <Text></Text> 
+   <Text>{this.props.data.DetailReducer.data.name}</Text>
   </View>
  )
 

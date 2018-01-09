@@ -1,13 +1,17 @@
-import ActionTypes from "./ActionTypes"
+import * as ActionTypes from "../constants/ActionTypes"
+
+function setDetailData(stateObject, data){
+  stateObject.data = data
+  
+  return stateObject
+}
 
 export const DetailReducer = (stateObject = {number: 0}, action) => {
-  switch (action.type) {
-  case 'INCREMENT':
-    return {number: stateObject.number + 1};
-  case 'DECREMENT':
-    return {number: stateObject.number - 1};
-  case 'RESET':
-    return {number: 0};
+  const {type, data} = action 
+
+  switch (type) {
+  case ActionTypes.SET_DETAIL_DATA:
+    return setDetailData(stateObject, data) 
   default:
     return stateObject
   }

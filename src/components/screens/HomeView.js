@@ -7,6 +7,8 @@ import React, { Component } from 'react';
 import { SearchBar } from 'react-native-elements'
 import { List, ListItem } from 'react-native-elements'
 
+import * as ActionTypes from "../../constants/ActionTypes"
+
 import {
   Platform,
   StyleSheet,
@@ -30,18 +32,17 @@ const list = [
 class HomeView extends Component<{}> {
   constructor(props) {
     super(props);
-    console.log('PushedScreen', 'constructor');
   }
 
  itemSelected = () => {
-    console.log("selected 1" + JSON.stringify(this.props))
-    this.props.dispatch({type: "HOME"})
+    let data = {name: "Tuan"}
+    this.props.dispatch({type: ActionTypes.SET_DETAIL_DATA, data: data})
     
-//    this.props.navigator.push({
-//      screen: "DetailViewContainer",
-//      title: "Detail",
-//      backButtonTitle: "Home",
-//    })
+    this.props.navigator.push({
+      screen: "DetailViewContainer",
+      title: "Detail",
+      backButtonTitle: "Home",
+    })
  }
 
  render() {
