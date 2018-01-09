@@ -1,13 +1,9 @@
 import { Navigation } from 'react-native-navigation';
 
-import HomeView from '../components/screens/HomeView';
-import DetailView from '../components/screens/DetailView';
-
-import UserDetailViewContainer from '../containers/UserDetailViewContainer';
+import HomeViewContainer from '../containers/HomeViewContainer';
+import DetailViewContainer from '../containers/DetailViewContainer';
 
 export default (store, Provider) => {
-  Navigation.registerComponent('HomeView', () => HomeView);
-  Navigation.registerComponent('DetailView', () => DetailView);
-
-  Navigation.registerComponent('UserDetailViewContainer', () => UserDetailViewContainer, store, Provider);
+  Navigation.registerComponent('HomeViewContainer', () => HomeViewContainer, store, Provider);
+  Navigation.registerComponent('DetailViewContainer', () => DetailViewContainer, store, Provider);
 };

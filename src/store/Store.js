@@ -1,12 +1,13 @@
-import { createStore, combineReducers } from 'redux'
-import CountReducer from '../reducers/CountReducer'
-import CountReducer1 from '../reducers/CountReducer1'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import thunk from "redux-thunk"
+
+import HomeReducer from '../reducers/HomeReducer'
+import DetailReducer from '../reducers/DetailReducer'
 
 const reducers = combineReducers({
- CountReducer,
- CountReducer1,
+ HomeReducer,
+ DetailReducer,
 });
-
 
 // Pass current state and action for reducers
 let Store = createStore(reducers)

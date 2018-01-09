@@ -1,4 +1,6 @@
-export const CountReducer = (stateObject = {number: 0}, action) => {
+import ActionTypes from "./ActionTypes"
+
+export const DetailReducer = (stateObject = {number: 0}, action) => {
   switch (action.type) {
   case 'INCREMENT':
     return {number: stateObject.number + 1};
@@ -11,4 +13,4 @@ export const CountReducer = (stateObject = {number: 0}, action) => {
   }
 }
 
-export default CountReducer
+export default DetailReducer

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
-import CounterView from '../components/views/CounterView.js';
+
+import DetailView from '../components/screens/DetailView.js';
 
 // 'stateObject' is the object from <Provider store={Store}>
 // Provider is given the store as a prop
@@ -16,6 +17,6 @@ const mapDispatchToProps = (dispatch) => ({
   reset: () => { dispatch({ type: 'RESET' }) },
 })
 
-const CounterViewContainer = connect(mapStateToProps, mapDispatchToProps)(CounterView)
+const DetailViewContainer = connect(mapStateToProps, mapDispatchToProps)(DetailView)
 
-export default CounterViewContainer 
+export default DetailViewContainer 

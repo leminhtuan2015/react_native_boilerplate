@@ -8,8 +8,8 @@ Routers(Store, Provider)
 
 Navigation.startSingleScreenApp({
   screen: {
-    screen: 'HomeView',
-    title: 'HomeView',
+    screen: 'HomeViewContainer',
+    title: 'Home View',
     navigatorStyle: {},
     navigatorButtons: {}
   }

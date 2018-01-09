@@ -28,7 +28,22 @@ const list = [
 ]
 
 class HomeView extends Component<{}> {
- 
+  constructor(props) {
+    super(props);
+    console.log('PushedScreen', 'constructor');
+  }
+
+ itemSelected = () => {
+    console.log("selected 1" + JSON.stringify(this.props))
+    this.props.dispatch({type: "HOME"})
+    
+//    this.props.navigator.push({
+//      screen: "DetailViewContainer",
+//      title: "Detail",
+//      backButtonTitle: "Home",
+//    })
+ }
+
  render() {
     return (
       <View>
@@ -41,6 +56,7 @@ class HomeView extends Component<{}> {
           {
             list.map((l, i) => (
               <ListItem
+                onPress={this.itemSelected}
                 roundAvatar
                 avatar={{uri:l.avatar_url}}
                 key={i}
