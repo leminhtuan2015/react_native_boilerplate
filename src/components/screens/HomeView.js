@@ -14,17 +14,23 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView
+  ScrollView,
+  ListView,
 } from 'react-native';
 
 
 class HomeView extends Component<{}> {
+  ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+  state = {}
+
   constructor(props) {
-    super(props);
+    super(props)
+
+    this.state.dataSource = this.ds.cloneWithRows(this.props.users) 
   }
 
-  onSelectedItem = (itemIndex) => {
-    let user = this.props.users[itemIndex]
+  onSelectedItem = (rowData) => {
+    let user = rowData
     this.props.dispatch({type: ActionTypes.SET_DETAIL_DATA, data: user})
     
     this.props.navigator.push({
@@ -32,7 +38,33 @@ class HomeView extends Component<{}> {
       title: "Detail",
       backButtonTitle: "Home",
     })
- }
+  }
+
+  onChangeText = (text) => {
+    var data = []    
+
+    if(text){
+      data = [this.props.users[0]] 
+    } else {
+      data = this.props.users 
+    }
+
+    let dataSource = this.ds.cloneWithRows(data)
+    this.setState({dataSource: dataSource})
+  }
+
+  renderRow = (rowData, sectionID) => {
+    return (
+      <ListItem
+        roundAvatar
+        onPress={()=>this.onSelectedItem(rowData)}
+        key={sectionID}
+        title={rowData.name}
+        subtitle={rowData.subtitle}
+        avatar={{uri:rowData.avatar_url}}
+      />
+    )
+  }
 
  render() {
     return (
@@ -40,21 +72,17 @@ class HomeView extends Component<{}> {
         <SearchBar
           round
           lightTheme
+          onChangeText={(text) => {this.onChangeText(text)}}
           placeholder='Type Here...' />
+
         <ScrollView>          
-        <List scrollEnabled={true}  style={styles.listView}>
-          {
-            this.props.users.map((user, index) => (
-              <ListItem
-                onPress={()=>this.onSelectedItem(index)}
-                roundAvatar
-                avatar={{uri:user.avatar_url}}
-                key={index}
-                title={user.name}
-              />
-            ))
-          }
-        </List>
+          <List>
+            <ListView 
+              style={styles.listView} 
+              renderRow={this.renderRow}
+              dataSource={this.state.dataSource} >
+            </ListView> 
+          </List>
         </ScrollView>
       </View>
     );
