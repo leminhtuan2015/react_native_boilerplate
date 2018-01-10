@@ -13,7 +13,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  ScrollView
 } from 'react-native';
 
 const list = [
@@ -27,6 +28,73 @@ const list = [
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
   },
+  {
+    name: 'Chris Jackson 1',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson 2',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson 3',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson 4',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+
+
 ]
 
 class HomeView extends Component<{}> {
@@ -34,8 +102,9 @@ class HomeView extends Component<{}> {
     super(props);
   }
 
- itemSelected = () => {
-    let data = {name: "Tuan"}
+
+ onSelectedItem = (itemIndex) => {
+    let data = {name: list[itemIndex].name}
     this.props.dispatch({type: ActionTypes.SET_DETAIL_DATA, data: data})
     
     this.props.navigator.push({
@@ -47,17 +116,17 @@ class HomeView extends Component<{}> {
 
  render() {
     return (
-      <View>
+      <View style={styles.container}>
         <SearchBar
           round
           lightTheme
           placeholder='Type Here...' />
-          
-        <List containerStyle={{marginBottom: 20}}>
+        <ScrollView>          
+        <List scrollEnabled={true}  style={styles.listView}>
           {
             list.map((l, i) => (
               <ListItem
-                onPress={this.itemSelected}
+                onPress={()=>this.onSelectedItem(i)}
                 roundAvatar
                 avatar={{uri:l.avatar_url}}
                 key={i}
@@ -66,6 +135,7 @@ class HomeView extends Component<{}> {
             ))
           }
         </List>
+        </ScrollView>
       </View>
     );
   }
@@ -74,10 +144,12 @@ class HomeView extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
+  
+  listView: {
+    flex: 1,
+  },
+
   welcome: {
     fontSize: 20,
     textAlign: 'center',
