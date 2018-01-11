@@ -1,51 +1,61 @@
 const list = [
-  {
+  { 
+    id: 1,
     name: 'Amy Farha',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
     subtitle: 'Vice President'
   },
   {
+    id: 2,
     name: 'Chris Jackson',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
   },
   {
+    id: 3,
     name: 'Chris Jackson 1',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
   },
   {
+    id: 4,
     name: 'Chris Jackson 2',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
   },
   {
+    id: 5,
     name: 'Chris Jackson 3',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
   },
   {
+    id: 6,
     name: 'Chris Jackson 4',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
   },
   {
-    name: 'Chris Jackson',
+    id: 7,
+    name: 'Chris Jackson 5',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
   },
   {
-    name: 'Chris Jackson',
+    id: 8,
+    name: 'Chris Jackson 6',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
   },
   {
-    name: 'Chris Jackson',
+    id: 9,
+    name: 'Chris Jackson 7',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
   },
   {
-    name: 'Chris Jackson',
+    id: 10,
+    name: 'Chris Jackson 8',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
   }

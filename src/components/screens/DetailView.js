@@ -1,11 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-import { AppRegistry } from 'react-native';
-import { Button } from 'react-native';
 import React, { Component } from 'react';
+import { Button } from 'react-native-elements'
 
 import {
   Platform,
@@ -20,22 +14,43 @@ class DetailView extends Component<{}> {
   buttonPress = () => {
     console.log("press")
     this.props.navigator.popToRoot({
-    animated: true,
-    animationType: 'fade',
-  });
-}
- 
-view = (
-  <View style={styles.container}>
-   <Button
-    onPress={this.buttonPress}
-     color="#E91E63"
-     title='Back' />
-   <Text>{this.props.data.DetailReducer.data.name}</Text>
-  </View>
- )
+      animated: true,
+      animationType: 'fade',
+    });
+  }
 
- render() {
+  editButtonPress = () => {
+    console.log("press")
+    this.props.navigator.showModal({
+      screen: "EditViewContainer",      
+    });
+  }
+ 
+  view = (
+    <View style={styles.container}>
+     <Button
+       onPress={this.buttonPress}
+       color="#009688"
+       backgroundColor="#FFC107"
+       title='Back' />
+
+     <Text></Text>
+
+      <Button
+        raised
+        onPress={this.editButtonPress}
+        backgroundColor="#E41E63"
+        icon={{name: 'cached'}}
+        title='Edit' />
+
+      <View style={styles.container}>
+
+        <Text>{this.props.data.DetailReducer.data.name}</Text>
+      </View>
+    </View>
+   )
+
+  render() {
     return this.view
   }
 }
@@ -49,23 +64,10 @@ view = (
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
     padding: 10,
     marginTop: 10,
 
   },
-  countContainer: {
-    alignItems: 'center',
-    padding: 10,
-    margin: 10,
-  },
-  countText: {
-    color: '#FF00FF'
-  },
-
-  buttonContainer: {
-    width: "50%"
-  }
 })
 
 
