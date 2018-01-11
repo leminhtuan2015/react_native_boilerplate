@@ -8,6 +8,7 @@ import { SearchBar } from 'react-native-elements'
 import { List, ListItem } from 'react-native-elements'
 
 import * as ActionTypes from "../../constants/ActionTypes"
+import User from "../../models/User"
 
 import {
   Platform,
@@ -41,13 +42,10 @@ class HomeView extends Component<{}> {
   }
 
   onChangeText = (text) => {
-    var data = []    
+    //this.props.dispatch({type:"HELLO"})
+    //this.props.dispatch({type:"FILTER_USER", keyword: text, users: this.props.users})
 
-    if(text){
-      data = [this.props.users[0]] 
-    } else {
-      data = this.props.users 
-    }
+    let data = User.filter(text)
 
     let dataSource = this.ds.cloneWithRows(data)
     this.setState({dataSource: dataSource})
