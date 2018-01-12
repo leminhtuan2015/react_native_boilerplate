@@ -10,6 +10,22 @@ import {
 } from 'react-native';
 
 class DetailView extends Component<{}> {
+  
+  constructor(props) {
+    super(props);
+    // if you want to listen on navigator events, set this up
+    this.props.navigator
+      .setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+
+  onNavigatorEvent(event) {
+    console.log(event.type)
+    if (event.type == 'ScreenChangedEvent') {
+      if (event.id == 'backPress') {
+        console.log('back');
+      }
+    }
+  }
 
   buttonPress = () => {
     console.log("press")
@@ -21,7 +37,7 @@ class DetailView extends Component<{}> {
 
   editButtonPress = () => {
     console.log("press")
-    this.props.navigator.showModal({
+    this.props.navigator.push({
       screen: "EditViewContainer",      
     });
   }

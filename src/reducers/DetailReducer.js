@@ -12,6 +12,8 @@ export const DetailReducer = (stateObject = {number: 0}, action) => {
   switch (type) {
   case ActionTypes.SET_DETAIL_DATA:
     return setDetailData(stateObject, data) 
+  case ActionTypes.UPDATE_DETAIL_DATA:
+    return setDetailData(stateObject, data)
   default:
     return stateObject
   }
