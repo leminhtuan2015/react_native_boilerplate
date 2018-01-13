@@ -10,20 +10,25 @@ import {
 } from 'react-native';
 
 class DetailView extends Component<{}> {
-  
+  state = {}
+ 
   constructor(props) {
     super(props);
+    
+    this.state.data = this.props.data.DetailReducer.data
+    
     // if you want to listen on navigator events, set this up
     this.props.navigator
       .setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  
   }
 
   onNavigatorEvent(event) {
     console.log(event.type)
     if (event.type == 'ScreenChangedEvent') {
-      if (event.id == 'backPress') {
-        console.log('back');
-      }
+      console.log("data haha : " + JSON.stringify(this.props.data.DetailReducer.data))
+    
+      this.setState({data: this.props.data.DetailReducer.data})
     }
   }
 
@@ -42,7 +47,8 @@ class DetailView extends Component<{}> {
     });
   }
  
-  view = (
+  render() {
+    return (
     <View style={styles.container}>
      <Button
        onPress={this.buttonPress}
@@ -61,13 +67,11 @@ class DetailView extends Component<{}> {
 
       <View style={styles.container}>
 
-        <Text>{this.props.data.DetailReducer.data.name}</Text>
+        <Text>{this.state.data.name}</Text>
       </View>
     </View>
    )
-
-  render() {
-    return this.view
+ 
   }
 }
 
