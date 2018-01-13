@@ -46,9 +46,10 @@ class EditView extends Component<{}> {
         console.log('Input Text Value' + this.inputNameText)
         this.inputName.shake()
         var user = this.props.data.DetailReducer.data
-        user.name = this.inputNameText
-        
-        this.props.dispatch({type: ActionTypes.UPDATE_DETAIL_DATA, data: user})
+        // TODO
+        //user.name = this.inputNameText
+        let newUser = {name: this.inputNameText} 
+        this.props.dispatch({type: ActionTypes.UPDATE_DETAIL_DATA, data: newUser})
       }
       
       if (event.id == 'backPress') {

@@ -31,6 +31,8 @@ class HomeView extends Component<{}> {
   }
 
   onSelectedItem = (rowData) => {
+   console.log("On Selected : " + JSON.stringify(rowData))
+
     let user = rowData
     this.props.dispatch({type: ActionTypes.SET_DETAIL_DATA, data: user})
     
