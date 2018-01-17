@@ -1,16 +1,8 @@
 import { Navigation } from 'react-native-navigation';
 import { Provider } from 'react-redux';
+import React from 'react';
+import { AppRegistry} from 'react-native';
 
-import Routers from './src/routers/Routers.js'
-import Store from './src/store/Store.js';
+import RootView from './src/components/screens/RootView';
 
-Routers(Store, Provider)
-
-Navigation.startSingleScreenApp({
-  screen: {
-    screen: 'HomeViewContainer',
-    title: 'Home View',
-    navigatorStyle: {},
-    navigatorButtons: {}
-  }
-});
+AppRegistry.registerComponent('demo_react_native', () => RootView);

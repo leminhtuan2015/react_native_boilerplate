@@ -18,8 +18,8 @@ class DetailView extends Component<{}> {
     this.state.data = this.props.data.DetailReducer.data
     
     // if you want to listen on navigator events, set this up
-    this.props.navigator
-      .setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    //this.props.navigator
+    //  .setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   
   }
 
