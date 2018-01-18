@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-native-elements'
-import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import {Divider,FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 import * as ActionTypes from "../../constants/ActionTypes"
 
 import {
@@ -25,6 +25,9 @@ class EditView extends Component<{}> {
     this.props.dispatch({type: ActionTypes.UPDATE_DETAIL_DATA, data: newUser})
   }
 
+  homeButtonPress = () => {
+    this.props.navigation.goBack()
+  }
 
   onTextChange = (text) => {
     this.inputNameText = text
@@ -46,6 +49,17 @@ view = (
         backgroundColor="#E41E63"
         icon={{name: 'cached'}}
         title='Save' />
+
+      <Text />
+      <Divider style={{ backgroundColor: 'gray' }} />
+      <Text />
+
+      <Button
+        raised
+        onPress={this.homeButtonPress}
+        backgroundColor="#E41E63"
+        icon={{name: 'cached'}}
+        title='Back' />
 
   </View>
  )

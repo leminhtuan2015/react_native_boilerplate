@@ -22,10 +22,7 @@ class DetailView extends Component<{}> {
 
   buttonPress = () => {
     console.log("press")
-    this.props.navigator.popToRoot({
-      animated: true,
-      animationType: 'fade',
-    });
+    this.props.navigation.goBack()
   }
 
   editButtonPress = () => {
@@ -52,7 +49,6 @@ class DetailView extends Component<{}> {
         title='Edit' />
 
       <View style={styles.container}>
-
         <Text>{this.props.store.detailViewState.data.name}</Text>
       </View>
     </View>

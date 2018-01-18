@@ -4,14 +4,21 @@ import HomeViewContainer from '../../containers/HomeViewContainer';
 import DetailViewContainer from '../../containers/DetailViewContainer';
 import EditViewContainer from '../../containers/EditViewContainer';
 
-import TestView from './TestView';
-
 const Navigator = StackNavigator(
   {
-    HomeView: {screen: HomeViewContainer,},
-    DetailView: {screen: DetailViewContainer,},
+    HomeView: {
+      screen: HomeViewContainer,
+      navigationOptions: {
+        headerTitle: 'Home',
+      },
+    },
+    DetailView: {
+      screen: DetailViewContainer,
+      navigationOptions: {
+        headerTitle: 'Detail',
+      },
+    },
     EditView: {screen: EditViewContainer,},
-    TestView: {screen: TestView}, 
   },
   {
     headerMode: 'screen'
