@@ -4,16 +4,18 @@ import createSagaMiddleware from 'redux-saga'
 
 import HomeReducer from '../reducers/HomeReducer'
 import DetailReducer from '../reducers/DetailReducer'
+import NavigatorReducer from '../reducers/NavigatorReducer'
+
 import rootSaga from '../sagas/Sagas'
 
 const reducers = combineReducers({
- HomeReducer,
- DetailReducer,
+ homeViewState: HomeReducer,
+ detailViewState: DetailReducer,
+ nav: NavigatorReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware()
 
-// Pass current state and action for reducers
 let Store = createStore(reducers, applyMiddleware(sagaMiddleware))
 
 console.log("Store state: " + JSON.stringify(Store.getState()))

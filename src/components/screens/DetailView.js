@@ -15,21 +15,9 @@ class DetailView extends Component<{}> {
   constructor(props) {
     super(props);
     
-    this.state.data = this.props.data.DetailReducer.data
-    
-    // if you want to listen on navigator events, set this up
-    //this.props.navigator
-    //  .setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-  
-  }
-
-  onNavigatorEvent(event) {
-    console.log(event.type)
-    if (event.type == 'ScreenChangedEvent') {
-      console.log("data haha : " + JSON.stringify(this.props.data.DetailReducer.data))
-    
-      this.setState({data: this.props.data.DetailReducer.data})
-    }
+    console.log("--------------------")
+    console.log("DetailViewState:" + JSON.stringify(this.props))
+    console.log("--------------------")
   }
 
   buttonPress = () => {
@@ -42,9 +30,7 @@ class DetailView extends Component<{}> {
 
   editButtonPress = () => {
     console.log("press")
-    this.props.navigator.push({
-      screen: "EditViewContainer",      
-    });
+    this.props.navigation.navigate('EditView') 
   }
  
   render() {
@@ -67,7 +53,7 @@ class DetailView extends Component<{}> {
 
       <View style={styles.container}>
 
-        <Text>{this.state.data.name}</Text>
+        <Text>{this.props.store.detailViewState.data.name}</Text>
       </View>
     </View>
    )
@@ -89,7 +75,5 @@ class DetailView extends Component<{}> {
 
   },
 })
-
-
 
 export default DetailView

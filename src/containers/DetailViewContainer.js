@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 
 import DetailView from '../components/screens/DetailView.js';
 
-// 'stateObject' is the object from <Provider store={Store}>
+// 'store' is the object from <Provider store={Store}>
 // Provider is given the store as a prop
-const mapStateToProps = (stateObject) => ({
-  data: stateObject
+const mapStateToProps = (store) => ({
+  store: store
 })
 
 // 'dispatch' is the action from <Provider store={Store}>

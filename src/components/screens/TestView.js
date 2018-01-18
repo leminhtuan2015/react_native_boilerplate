@@ -13,10 +13,6 @@ import {
 
 class RootView extends Component<{}> {
 
-  constructor(props) {
-    super(props);
-  }
-
 view = (
   <View style={styles.container}>
     <FormLabel>Name</FormLabel>

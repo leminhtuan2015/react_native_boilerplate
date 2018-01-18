@@ -12,59 +12,19 @@ import {
 } from 'react-native';
 
 class EditView extends Component<{}> {
-  static navigatorButtons = {
-    rightButtons: [
-      {
-        title: 'Save',
-        id: 'save',
-        testID: 'e2e_rules',
-        //disabled: true,
-        //disableIconTint: true,
-        showAsAction: 'ifRoom',
-        buttonColor: 'blue',
-        buttonFontSize: 14,
-        buttonFontWeight: '600',
-      },
-      { 
-        //icon: "",
-        id: 'save'
-      }
-    ],
-
-  };
-
   constructor(props) {
     super(props);
-    // if you want to listen on navigator events, set this up
-    this.props.navigator
-      .setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
-  onNavigatorEvent(event) {
-    if (event.type == 'NavBarButtonPress') {
-      if (event.id == 'save') {
-        console.log('Input Text Value' + this.inputNameText)
-        this.inputName.shake()
-        var user = this.props.data.DetailReducer.data
-        // TODO
-        //user.name = this.inputNameText
-        let newUser = {name: this.inputNameText} 
-        this.props.dispatch({type: ActionTypes.UPDATE_DETAIL_DATA, data: newUser})
-      }
-      
-      if (event.id == 'backPress') {
-        console.log('back');
-      }
-    }
+  saveButtonPress = () => {
+    this.inputName.shake()
+    var user = this.props.store.detailViewState.data
+    // TODO
+    //user.name = this.inputNameText
+    let newUser = {name: this.inputNameText} 
+    this.props.dispatch({type: ActionTypes.UPDATE_DETAIL_DATA, data: newUser})
   }
 
-  buttonPress = () => {
-    console.log("press")
-    this.props.navigator.popToRoot({
-      animated: true,
-      animationType: 'fade',
-    });
-  }
 
   onTextChange = (text) => {
     this.inputNameText = text
@@ -77,8 +37,16 @@ view = (
       ref={(inputName) => {this.inputName = inputName}}
       onChangeText={(text) => {this.onTextChange(text)}}
       placeholder="Name"
-      defaultValue={this.props.data.DetailReducer.data.name} />
+      defaultValue={this.props.store.detailViewState.data.name} />
     <FormValidationMessage>Error message</FormValidationMessage>
+
+      <Button
+        raised
+        onPress={this.saveButtonPress}
+        backgroundColor="#E41E63"
+        icon={{name: 'cached'}}
+        title='Save' />
+
   </View>
  )
 
@@ -101,8 +69,6 @@ view = (
 
   },
 })
-
-
 
 export default EditView
 

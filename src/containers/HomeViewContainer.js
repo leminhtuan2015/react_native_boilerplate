@@ -7,8 +7,8 @@ import HomeView from '../components/screens/HomeView.js';
 
 // 'stateObject' is the object store.getState() from <Provider store={Store}>
 // Provider is given the store as a prop
-const mapStateToProps = (stateObject) => ({
-  data: stateObject,
+const mapStateToProps = (store) => ({
+  store: store,
   users: User.all(),
 })
 

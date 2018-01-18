@@ -28,6 +28,7 @@ class HomeView extends Component<{}> {
     super(props)
 
     this.state.dataSource = this.ds.cloneWithRows(this.props.users) 
+    //this.state.dataSource = this.ds.cloneWithRows([]) 
   }
 
   onSelectedItem = (rowData) => {
@@ -35,12 +36,7 @@ class HomeView extends Component<{}> {
 
     let user = rowData
     this.props.dispatch({type: ActionTypes.SET_DETAIL_DATA, data: user})
-    
-    this.props.navigator.push({
-      screen: "DetailViewContainer",
-      title: "Detail",
-      backButtonTitle: "Home",
-    })
+    this.props.navigation.navigate('DetailView') 
   }
 
   onChangeText = (text) => {
@@ -64,6 +60,10 @@ class HomeView extends Component<{}> {
         avatar={{uri:rowData.avatar_url}}
       />
     )
+  }
+
+ render1() {
+  return (<View/>)
   }
 
  render() {

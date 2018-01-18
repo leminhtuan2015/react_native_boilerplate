@@ -8,14 +8,14 @@ function setHomeData(stateObject){
   return stateObject
 }
 
-export const HomeReducer = (stateObject = {number: 0}, action) => {
+export const HomeReducer = (homeViewState = {number: 0}, action) => {
   console.log("---------------------------------------Home Reducer")
 
   switch (action.type) {
   case ActionTypes.SET_HOME_DATA:
-    return setHomeData(stateObject)
+    return setHomeData(homeViewState)
   default:
-    return stateObject
+    return homeViewState
   }
 }
 

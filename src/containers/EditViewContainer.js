@@ -6,8 +6,8 @@ import EditView from '../components/screens/EditView.js';
 
 // 'stateObject' is the object from <Provider store={Store}>
 // Provider is given the store as a prop
-const mapStateToProps = (stateObject) => ({
-  data: stateObject
+const mapStateToProps = (store) => ({
+  store: store
 })
 
 
